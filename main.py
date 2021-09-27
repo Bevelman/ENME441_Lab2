@@ -8,9 +8,9 @@ GPIO.setup(p2, GPIO.OUT)
 GPIO.setup(p3, GPIO.OUT)
 
 in1,in2 = 16,20
-gpio.setmode(gpio.BCM)
-gpio.setup(in1, gpio.IN, pull_up_down=gpio.PUD_DOWN)
-gpio.setup(in2, gpio.IN, pull_up_down=gpio.PUD_DOWN)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(in1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(in2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # Define a threaded callback function:
 def myCallback(pin):
@@ -36,9 +36,9 @@ def myCallback(pin):
 
 try:
   # Execute myCallback() if port 1 goes HIGH:
-  gpio.add_event_detect(in1, gpio.RISING, callback=myCallback, bouncetime=500)
+  GPIO.add_event_detect(in1, GPIO.RISING, callback=myCallback, bouncetime=500)
   # Execute myCallback() if port 2 goes HIGH:
-  gpio.add_event_detect(in2, gpio.RISING, callback=myCallback, bouncetime=500)
+  GPIO.add_event_detect(in2, GPIO.RISING, callback=myCallback, bouncetime=500)
   while True: # continuous loop
     GPIO.output(p3, 0) # set output to 0V
     sleep(0.5) # wait 0.5 sec
