@@ -36,9 +36,9 @@ def myCallback(pin):
 
 try:
   # Execute myCallback() if port 1 goes HIGH:
-  GPIO.add_event_detect(in1, GPIO.RISING, callback=myCallback, bouncetime=500)
+  GPIO.add_event_detect(in1, GPIO.RISING, callback=myCallback, bouncetime=100)
   # Execute myCallback() if port 2 goes HIGH:
-  GPIO.add_event_detect(in2, GPIO.RISING, callback=myCallback, bouncetime=500)
+  GPIO.add_event_detect(in2, GPIO.RISING, callback=myCallback, bouncetime=100)
   while True: # continuous loop
     GPIO.output(p3, 0) # set output to 0V
     sleep(0.5) # wait 0.5 sec
