@@ -33,6 +33,7 @@ def myCallback(pin):
     for dc in range(101):
       pwm.ChangeDutyCycle(100-dc) # set duty cycle
       sleep(0.01)             # sleep 10 ms
+  pwm.stop()
 
 try:
   # Execute myCallback() if port 1 goes HIGH:
@@ -48,5 +49,5 @@ try:
 except KeyboardInterrupt:     # stop gracefully on ctrl-C
   print('\nExiting')
 
-pwm.stop()
+
 GPIO.cleanup()
